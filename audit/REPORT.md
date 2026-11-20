@@ -6,6 +6,11 @@
 **Date:** 2026-11-20
 **Decision: CONDITIONAL** · **Readiness level: 2 (Documented)**
 
+**Repository links**
+- **Final version (after audit):** https://github.com/darynabylai3-arch/smart-campus-final (commits: baseline `89063a7`, audit changes `55a0b67`)
+- **Baseline version (before audit):** *link to be added* (repository `smart-campus-baseline`; content = original project at commit `b4edba3`)
+
+
 ---
 
 ## 0. Summary
