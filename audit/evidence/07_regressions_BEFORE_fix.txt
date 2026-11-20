@@ -1,0 +1,55 @@
+
+ RUN  v2.1.9 /Users/darn/Downloads/smart-campus-practice12/project
+
+ ❯ src/explain/regressions.test.ts (7 tests | 2 failed) 4ms
+   × R-01 synonym claims of availability are rejected for unavailable decisions > rejects 'free' for an unavailable decision 3ms
+     → expected true to be false // Object.is equality
+   × R-01 synonym claims of availability are rejected for unavailable decisions > rejects 'open' for an unavailable decision 0ms
+     → expected true to be false // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/explain/regressions.test.ts > R-01 synonym claims of availability are rejected for unavailable decisions > rejects 'free' for an unavailable decision
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/explain/regressions.test.ts:22:55
+     20|   it("rejects 'free' for an unavailable decision", () => {
+     21|     const text = "Aurora Hall is free from 10:30 to 11:30 because it o…
+     22|     expect(validateExplanation(text, unavailable).ok).toBe(false);
+       |                                                       ^
+     23|   });
+     24| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/explain/regressions.test.ts > R-01 synonym claims of availability are rejected for unavailable decisions > rejects 'open' for an unavailable decision
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/explain/regressions.test.ts:27:55
+     25|   it("rejects 'open' for an unavailable decision", () => {
+     26|     const text = "Aurora Hall is open from 10:30 to 11:30 because it o…
+     27|     expect(validateExplanation(text, unavailable).ok).toBe(false);
+       |                                                       ^
+     28|   });
+     29| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 5 passed (7)
+   Start at  17:29:14
+   Duration  188ms (transform 17ms, setup 0ms, collect 17ms, tests 4ms, environment 0ms, prepare 20ms)
+
+exit=1

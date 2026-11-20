@@ -105,8 +105,10 @@ export function validateExplanation(text: string, input: ExplainInput): Validati
   }
 
   // Negated forms are stripped first so "not available" is never read as "available".
+  // Synonyms "free" and "open" count as availability claims too (audit R-01); a negated
+  // "not free" is also rejected for an unavailable decision, which fails closed to the fallback.
   const claimsUnavailable = NEGATIVE.test(lower) || /\bblocked\b/.test(lower);
-  const claimsAvailable = /\bavailable\b/.test(lower.replace(NEGATIVE_G, " "));
+  const claimsAvailable = /\b(available|free|open)\b/.test(lower.replace(NEGATIVE_G, " "));
   if (!input.isAvailable && claimsAvailable) {
     return { ok: false, error: "Explanation says available but the room is unavailable." };
   }

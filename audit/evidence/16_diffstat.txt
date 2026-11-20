@@ -1,0 +1,4 @@
+ project/AGENTS.md               |  2 ++
+ project/src/availability.ts     | 12 +++---------
+ project/src/explain/contract.ts |  4 +++-
+ 3 files changed, 8 insertions(+), 10 deletions(-)

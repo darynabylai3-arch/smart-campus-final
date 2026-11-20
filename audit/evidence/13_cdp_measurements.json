@@ -1,0 +1,8 @@
+{
+  "mobile375": {
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "horizontalOverflow": false
+  }
+}

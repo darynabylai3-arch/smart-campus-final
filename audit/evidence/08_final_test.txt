@@ -1,0 +1,14 @@
+$ npx vitest run
+
+ RUN  v2.1.9 /Users/darn/Downloads/smart-campus-practice12/project
+
+ ✓ src/explain/regressions.test.ts (7 tests) 2ms
+ ✓ src/availability.test.ts (27 tests) 3ms
+ ✓ src/explain/explain.test.ts (26 tests) 60ms
+
+ Test Files  3 passed (3)
+      Tests  60 passed (60)
+   Start at  17:29:26
+   Duration  264ms (transform 57ms, setup 0ms, collect 88ms, tests 64ms, environment 0ms, prepare 89ms)
+
+exit=0

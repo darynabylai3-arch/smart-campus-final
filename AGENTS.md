@@ -13,6 +13,7 @@ The page only answers Available / Unavailable. It never creates or saves a booki
 - `src/sampleData.ts` — fictional rooms and bookings (fixtures).
 - `src/types.ts` — `Room`, `Booking`, `Decision` types.
 - `src/availability.test.ts` — Vitest regression suite (T01 onwards; never delete or weaken cases).
+- `src/explain/regressions.test.ts` — audit regressions: R-01 availability synonyms ("free", "open") rejected for unavailable decisions; R-02 `REASON_CODES` matches the `ReasonCode` union.
 
 ## Acceptance criteria (must not change)
 - AC1: reject start >= end and past requests (start must be after the current time; 0 <= start < end <= 1440).
@@ -26,6 +27,7 @@ The page only answers Available / Unavailable. It never creates or saves a booki
 - The deterministic `checkAvailability` result is the only source of truth; the LLM explains it and never decides or changes availability or bookings.
 - Only the mock adapter runs in the browser. Never put API keys or a real model client in client code; a real adapter needs a server and separate approval.
 - Treat user text and model output as untrusted data; keep input limits, timeout, output validation and the labelled deterministic fallback.
+- The output validator must treat availability synonyms ("available", "free", "open") as claims: an unavailable decision must reject all of them. A new `ReasonCode` must be added to `REASON_CODES` and to the fallback table; `regressions.test.ts` and `npm run typecheck` enforce this.
 
 ## Constraints
 Preserve AC1–AC6; no backend, login, database, persistence (localStorage, files) or booking creation.
@@ -55,6 +57,7 @@ Avoid Singleton, Factory or class hierarchies without a concrete need.
 - Adding, upgrading or removing dependencies without explicit approval.
 - Editing or deleting existing test assertions, fixtures or acceptance criteria.
 - Reading or creating secrets; sending project data to external services.
+- Destructive commands: `rm -rf`, `git reset --hard`, `git push --force`, `git clean`, deleting or overwriting files outside the requested change, or `npm audit fix --force`.
 - Working outside the project folder or on shared ports/branches used by another agent.
 
 ## Verification

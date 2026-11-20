@@ -1,0 +1,18 @@
+$ npm run build
+
+> vite-react-typescript-starter@0.0.0 build
+> vite build
+
+vite v5.4.8 building for production...
+transforming...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 1579 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.71 kB │ gzip:  0.39 kB
+dist/assets/index-CMZCJgLj.css   13.68 kB │ gzip:  3.41 kB
+dist/assets/index-yKxNVQ76.js   167.06 kB │ gzip: 53.08 kB
+✓ built in 534ms
+exit=0

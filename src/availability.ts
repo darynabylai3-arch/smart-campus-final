@@ -1,5 +1,5 @@
 import { Booking, Decision, Room } from "@/types";
-import { MAX_BOOKING_MINUTES, MINUTES_PER_DAY } from "@/timeUtils";
+import { MAX_BOOKING_MINUTES, MINUTES_PER_DAY, minutesToLabel } from "@/timeUtils";
 
 export function checkAvailability(
   room: Room | null,
@@ -26,7 +26,7 @@ export function checkAvailability(
   if (start <= currentMinutes) {
     return {
       status: "unavailable",
-      reason: `Start time must be after the current time (${formatClock(currentMinutes)}).`,
+      reason: `Start time must be after the current time (${minutesToLabel(currentMinutes)}).`,
       code: "PAST_START",
     };
   }
@@ -51,7 +51,7 @@ export function checkAvailability(
   if (overlap) {
     return {
       status: "unavailable",
-      reason: `Overlaps existing booking "${overlap.title}" (${formatClock(overlap.start)}-${formatClock(overlap.end)}).`,
+      reason: `Overlaps existing booking "${overlap.title}" (${minutesToLabel(overlap.start)}-${minutesToLabel(overlap.end)}).`,
       code: "OVERLAP",
     };
   }
@@ -70,12 +70,6 @@ export function getInputHints(
     startInvalid: startMin !== null && currentMinutes !== null && startMin <= currentMinutes,
     intervalInvalid: startMin !== null && endMin !== null && !(startMin < endMin),
   };
-}
-
-function formatClock(min: number): string {
-  const h = Math.floor(min / 60);
-  const m = min % 60;
-  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
 export function intervalsOverlap(aStart: number, aEnd: number, bStart: number, bEnd: number): boolean {

@@ -1,0 +1,9 @@
+
+> vite-react-typescript-starter@0.0.0 typecheck
+> tsc --noEmit -p tsconfig.app.json
+
+src/explain/adapters.ts(40,37): error TS2366: Function lacks ending return statement and return type does not include 'undefined'.
+src/explain/contract.ts(35,7): error TS2741: Property 'ZZ_PROBE' is missing in type '{ OVERLAP: RegExp; ROOM_BLOCKED: RegExp; TOO_LONG: RegExp; PAST_START: RegExp; INVALID_RANGE: RegExp; INVALID_TIME: RegExp; NO_ROOM: RegExp; AVAILABLE: RegExp; }' but required in type 'Record<ReasonCode, RegExp>'.
+src/explain/explainAvailability.ts(12,7): error TS2741: Property 'ZZ_PROBE' is missing in type '{ AVAILABLE: string; NO_ROOM: string; INVALID_TIME: string; INVALID_RANGE: string; PAST_START: string; TOO_LONG: string; ROOM_BLOCKED: string; OVERLAP: string; }' but required in type 'Record<ReasonCode, string>'.
+src/explain/regressions.test.ts(50,9): error TS2741: Property 'ZZ_PROBE' is missing in type '{ AVAILABLE: true; NO_ROOM: true; INVALID_TIME: true; INVALID_RANGE: true; PAST_START: true; TOO_LONG: true; ROOM_BLOCKED: true; OVERLAP: true; }' but required in type 'Record<ReasonCode, true>'.
+exit=2
